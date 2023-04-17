@@ -5,6 +5,8 @@ import java.util.Date;
 
 import jakarta.annotation.PostConstruct;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +17,8 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+@Getter
+@Setter
 @Component
 public class JwtTokenProvider {
 
@@ -54,6 +58,9 @@ public class JwtTokenProvider {
     public String getUsernameFromToken(String token) {
         Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
         return claims.getSubject();
+    }
+public void JwtTokenProvider(){
+
     }
 }
 
