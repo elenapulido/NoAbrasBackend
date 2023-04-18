@@ -1,4 +1,4 @@
-package Api.NoAbras.Service;
+package Api.NoAbras.Security.service;
 
 import Api.NoAbras.Model.CModel;
 import Api.NoAbras.Repository.IRepository;
@@ -12,8 +12,8 @@ import java.util.Optional;
 @Service
 public class CService {
     @Autowired
-
     private IRepository iRepository;
+
 
     public void createConsultation(CModel model){
         iRepository.save(model);
@@ -25,6 +25,7 @@ public class CService {
         return models;
 
     }
+
     public Optional<CModel> readConsultationId(Long id){
         Optional<CModel> model = iRepository.findById(id);
         return model;
@@ -38,8 +39,6 @@ public class CService {
 
     public void deleteConsultation(Long id){
         iRepository.deleteById(id);
-
-
     }
 
 
